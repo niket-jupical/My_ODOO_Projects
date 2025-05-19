@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_vehicle_service_wizard_form" model="ir.ui.view">
+        <field name="name">vehicle.service.wizard.form</field>
+        <field name="model">automobile.vehicle.service.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Schedule Vehicle Service">
+                <group>
+                    <field name="vehicle_id"/>
+                    <field name="service_date"/>
+                    <field name="notes"/>
+                </group>
+                <footer>
+                    <button string="Schedule" type="object" name="schedule_service" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

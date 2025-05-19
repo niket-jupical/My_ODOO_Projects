@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="automobile.vehicle_readonly_readonly_view_form" model="ir.ui.view">
+        <field name="name">automobile.vehicle.readonly.view.form</field>
+        <field name="model">automobile.vehicle</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form string="Automobile" create="0" delete="0" edit="0">
+                <sheet>
+                    <group>
+                        <group name="name" string="Cars Info">
+                            <field name="name"/>
+                            <field name="model"/>
+                            <field name="price"/>
+                            <field name="manufacturer"/>
+                        </group>
+                        <group name="name" string="Owner Needs">
+                            <field name="color"/>
+                            <field name="available"/>
+                            <field name="owner_id"/>
+                            <field name="manufacturer_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="automobile.vehicle_readonly_view_tree" model="ir.ui.view">
+        <field name="name">automobile.vehicle.readonly.view.tree</field>
+        <field name="model">automobile.vehicle</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <tree string="Automobile Vehicle" create="0" delete="0" edit="0">
+                <field name="name"/>
+                <field name="model"/>
+                <field name="manufacturer"/>
+                <field name="price"/>
+                <field name="color" optional="show"/>
+                <field name="available"/>
+                <field name="owner_id"/>
+                <!-- <field name='service_ids'>
+                <tree string="Service Records">
+                <field name="service_date"></field>
+                <field name="description"></field>
+                </tree>
+                <form string='Service Details'>
+                <field name="service_date"/>
+                <field name="description"/>
+                </form> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="automobile.vehicle_view_pivot" model="ir.ui.view">
+        <field name="name">automobile.vehicle.view.pivot</field>
+        <field name="model">automobile.vehicle</field>
+        <field name="arch" type='xml'>
+            <pivot string="Automobile Vehicle">
+                <field name="manufacturer" type="row"/>
+                <field name="model" type="col"/>
+                <field name="price" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="automobile.vehicle_view_kanban" model="ir.ui.view">
+        <field name="name">automobile.vehicle.view.kanban</field>
+        <field name="model">automobile.vehicle</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban-content">
+                                <strong>
+                                    <div class="oe_kanban-title">
+                                        <field name="name"/>
+                                    </div>
+                                </strong>
+                                <div>Name: <field name="name"/></div>
+                                <div>Model: <field name="model"/></div>
+                                <div>Manufacturer: <field name="manufacturer"/></div>
+                                <div>Price: <field name="price"/></div>
+                                <div>Color: <field name="color"/></div>
+                                <div>Available: <field name="available"/></div>
+                                <div>Owner: <field name="owner_id"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="automobile.vehicle_view_graph" model="ir.ui.view">
+        <field name="name">automobile.vehicle.view.graph</field>
+        <field name="model">automobile.vehicle</field>
+        <field name="arch" type="xml">
+            <graph string="Vehicle Details" type="bar">
+                <field name="manufacturer" type="row"/>
+                <field name="price" type="measure"/>
+                <field name="model" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <record id="automobile.vehicle_view_calendar" model="ir.ui.view">
+        <field name="name">automobile.vehicle.view.calendar</field>
+        <field name="model">automobile.vehicle</field>
+        <field name="arch" type="xml">
+            <calendar string="Vehicle Details Calendar" date_start="date" mode="month">
+                <field name="name"/>
+                <field name="model"/>
+                <field name="price"/>
+                <field name="manufacturer"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_automobile_readonly_vehicle" model="ir.actions.act_window">
+        <field name="name">View Vehicles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">automobile.vehicle</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[Command.clear(),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('automobile.vehicle_readonly_view_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('automobile.vehicle_readonly_readonly_view_form')})]"/>
+    </record>
+
+    <menuitem
+        id="menu_automobile_root"
+        name="Automobile Management"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_automobile_vehicle"
+        name="View Cars"
+        parent="menu_automobile_root"
+        action="action_automobile_readonly_vehicle"
+        sequence="20"
+    />
+    <!-- <menuitem
+        id="menu_automobile_vehicle_readonly"
+        name="View Cars12"
+        parent="menu_automobile_root"
+        action="action_automobile_readonly_vehicle"
+        sequence="20"
+    /> -->
+</odoo>

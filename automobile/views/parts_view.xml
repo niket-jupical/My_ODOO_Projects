@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="automobile.parts_view_form" model="ir.ui.view">
+        <field name="name">automobile.parts.view.form</field>
+        <field name="model">automobile.parts</field>
+        <field name="arch" type="xml">
+            <form string="Automobile Part Details">
+                <sheet>
+                    <group name="Parts Info" string="Parts Info">
+                        <field name="name"/>
+                        <field name="part_number"/>
+                        <field name="price"/>
+                        <field name="part_manufacturer"/>   
+                    </group>
+                    <footer>
+                        <button name="action_update_price" string="Update Price" type="object" class="btn-primary"/>
+                        <button name="action_delete_part" string="Delete Part" type="object" class="btn-danger"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="automobile.parts_view_tree" model="ir.ui.view">
+        <field name="name">automobile.parts.view.tree</field>
+        <field name="model">automobile.parts</field>
+        <field name="arch" type="xml">
+            <tree string="Parts List">
+                <field name="name"/>
+                <field name="part_number"/>
+                <field name="price"/>
+                <field name="part_manufacturer"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_automobile_parts" model="ir.actions.act_window">
+        <field name="name">Vehicle Parts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">automobile.parts</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_automobile_parts"
+        name="Vehicle Parts"
+        parent="menu_automobile_root"
+        action="action_automobile_parts"
+        sequence="20"
+    />
+</odoo>

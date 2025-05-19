@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_automobile_vehicle,access_automobile_vehicle,model_automobile_vehicle,,1,1,1,1
+access_automobile_showroom,access_automobile_showroom,model_automobile_showroom,,1,1,1,1
+access_automobile_vehicle_service,access_automobile_vehicle_service,model_automobile_vehicle_service,,1,1,1,1
+access_automobile_parts,access_automobile_parts,model_automobile_parts,,1,1,1,1

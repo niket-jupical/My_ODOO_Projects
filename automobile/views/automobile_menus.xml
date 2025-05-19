@@ -1,0 +1,13 @@
+<odoo>
+    <record id="action_vehicle_service_wizard" model="ir.actions.act_window">
+        <field name="name">Schedule Vehicle Service</field>
+        <field name="res_model">automobile.vehicle.service.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_vehicle_service_wizard"
+        name="Schedule Service"
+        parent="automobile.menu_automobile_root"
+        action="action_vehicle_service_wizard"/>
+</odoo>
