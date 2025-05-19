@@ -6,7 +6,7 @@ class VehicleServiceWizard(models.TransientModel):
 
     vehicle_id = fields.Many2one('automobile.vehicle', string='Vehicle', required=True)
     service_date = fields.Datetime(string='Service Date', required=True)
-    notes = fields.Text(string='Service Notes')
+    description = fields.Text(string='Service Description')
 
     def schedule_service(self):
         """ This method schedules a service for the selected vehicle """
@@ -14,5 +14,5 @@ class VehicleServiceWizard(models.TransientModel):
         service_obj.create({
             'vehicle_id': self.vehicle_id.id,
             'service_date': self.service_date,
-            'notes': self.notes
+            'description': self.description
         })

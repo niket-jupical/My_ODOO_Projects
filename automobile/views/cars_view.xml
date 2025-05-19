@@ -6,6 +6,9 @@
         <field name="model">automobile.vehicle</field>
         <field name="arch" type="xml">
             <form string="Automobile">
+            <header>
+                <button id="" style="width: 40px" string="Schedule Service" name="%(action_vehicle_service_wizard)d" type="action" class="btn-primary"/>
+            </header>
                 <sheet>
                     <group>
                         <group name="car_info" string="Car Info">
@@ -19,6 +22,8 @@
                             <field name="available"/>
                             <field name="owner_id" />
                             <field name="manufacturer_id"/>
+                        <!-- <field name="%(action_vehicle_service_wizard)d">field> -->
+                        
                         </group>
                     </group>
                     <notebook>

@@ -8,7 +8,7 @@
                 <group>
                     <field name="vehicle_id"/>
                     <field name="service_date"/>
-                    <field name="notes"/>
+                    <field name="description"/>
                 </group>
                 <footer>
                     <button string="Schedule" type="object" name="schedule_service" class="btn-primary"/>
@@ -17,4 +17,5 @@
             </form>
         </field>
     </record>
+
 </odoo>

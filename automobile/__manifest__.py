@@ -11,9 +11,10 @@
         'views/cars_view.xml',
         'views/cars_readonly_view.xml',   
         'views/parts_view.xml',
-        'views/vehicle_service_wizard_view.xml',
-        'views/automobile_menus.xml',
+        'wizard/vehicle_service_wizard_view.xml',
+        'wizard/automobile_menus.xml',
     ],
-    'Installable':"True",
-    'license':"LGPL-3"
+    'installable':True,
+    'license':"LGPL-3",
+    'application': True
 }
